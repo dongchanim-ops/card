@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>임동찬 | Digital Business Card</title>
+  <!-- Google Fonts & Phosphor Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 배경 장식용 블러 구체 -->
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <main class="card-container">
+    <!-- 컨트롤 패널 (테마 토글, 공유 등) -->
+    <div class="top-controls">
+      <button id="themeToggleBtn" class="icon-btn" title="테마 변경" aria-label="테마 전환">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button id="flipCardBtn" class="icon-btn flip-shortcut-btn" title="명함 뒤집기" aria-label="명함 뒤집기">
+        <i class="fa-solid fa-repeat"></i>
+        <span>뒤집기</span>
+      </button>
+    </div>
+
+    <!-- 3D 인터랙티브 카드 -->
+    <div class="card" id="businessCard">
+      <!-- 카드 앞면 (Front) -->
+      <div class="card-face card-front">
+        <div class="card-header">
+          <span class="status-badge"><span class="status-dot"></span> Available for projects</span>
+          <span class="card-logo">PORTFOLIO</span>
+        </div>
+
+        <!-- 캐릭터 일러스트 아바타 -->
+        <div class="avatar-wrapper">
+          <div class="avatar-svg-container">
+            <!-- 남성 대학생 캐릭터 SVG (가르마 펌 스타일) -->
+            <svg viewBox="0 0 200 200" class="character-svg" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#FFE0C8" />
+                  <stop offset="100%" stop-color="#F5C4A4" />
+                </linearGradient>
+                <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#333842" />
+                  <stop offset="60%" stop-color="#23272f" />
+                  <stop offset="100%" stop-color="#14171c" />
+                </linearGradient>
+                <linearGradient id="hairHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#4a505e" />
+                  <stop offset="100%" stop-color="#2c303a" />
+                </linearGradient>
+                <linearGradient id="hoodieGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#4f46e5" />
+                  <stop offset="100%" stop-color="#3730a3" />
+                </linearGradient>
+                <linearGradient id="innerShirt" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#ffffff" />
+                  <stop offset="100%" stop-color="#e2e8f0" />
+                </linearGradient>
+              </defs>
+
+              <!-- 배경 원 -->
+              <circle cx="100" cy="100" r="95" fill="#EEF2FF" class="avatar-bg" />
+
+              <!-- 뒷머리 볼륨 (가르마 펌 텍스처) -->
+              <path d="M58,80 C54,58 70,32 100,32 C130,32 146,58 142,80 C146,94 140,108 135,110 C133,96 136,82 133,74 C130,55 118,44 100,44 C82,44 70,55 67,74 C64,82 67,96 65,110 C60,108 54,94 58,80 Z" fill="url(#hairGrad)" />
+
+              <!-- 목 -->
+              <rect x="88" y="112" width="24" height="24" rx="4" fill="url(#skinGrad)" />
+              <path d="M88,112 C95,120 105,120 112,112 L112,118 C105,124 95,124 88,118 Z" fill="#e5ad8b" opacity="0.6"/>
+
+              <!-- 옷 (후드티 / 이너웨어) -->
+              <path d="M82,130 Q100,145 118,130 L124,142 Q100,158 76,142 Z" fill="url(#innerShirt)" />
+              <path d="M50,145 C50,130 75,126 84,128 L84,142 Q100,158 116,142 L116,128 C125,126 150,130 150,145 L155,200 L45,200 Z" fill="url(#hoodieGrad)" />
+              <path d="M80,127 Q68,142 80,158 Q88,140 84,128 Z" fill="#4338ca" />
+              <path d="M120,127 Q132,142 120,158 Q112,140 116,128 Z" fill="#3730a3" />
+              <!-- 후드 스트링 -->
+              <path d="M88,148 Q86,165 89,178" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+              <path d="M112,148 Q114,165 111,178" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+
+              <!-- 귀 -->
+              <circle cx="66" cy="89" r="9" fill="url(#skinGrad)" />
+              <circle cx="134" cy="89" r="9" fill="url(#skinGrad)" />
+              <circle cx="66" cy="89" r="5" fill="#f0bca0" />
+              <circle cx="134" cy="89" r="5" fill="#f0bca0" />
+
+              <!-- 얼굴형 (이마가 깔끔하게 드러남) -->
+              <path d="M68,76 C68,52 132,52 132,76 C132,108 116,122 100,122 C84,122 68,108 68,76 Z" fill="url(#skinGrad)" />
+
+              <!-- 볼터치 -->
+              <ellipse cx="78" cy="94" rx="7" ry="4" fill="#ff7675" opacity="0.35" />
+              <ellipse cx="122" cy="94" rx="7" ry="4" fill="#ff7675" opacity="0.35" />
+
+              <!-- 눈썹 (가르마 사이로 잘 보임) -->
+              <path d="M75,73 Q85,69 92,72" stroke="#23272f" stroke-width="3" stroke-linecap="round" fill="none" />
+              <path d="M125,73 Q115,69 108,72" stroke="#23272f" stroke-width="3" stroke-linecap="round" fill="none" />
+
+              <!-- 눈 (똘망똘망한 눈) -->
+              <circle cx="83" cy="83" r="5" fill="#1e293b" />
+              <circle cx="85" cy="81" r="1.8" fill="#ffffff" />
+              <circle cx="117" cy="83" r="5" fill="#1e293b" />
+              <circle cx="119" cy="81" r="1.8" fill="#ffffff" />
+
+              <!-- 코 -->
+              <path d="M100,83 L98,90 L102,90" stroke="#d9997e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+              <!-- 입 (산뜻한 미소) -->
+              <path d="M92,97 Q100,107 108,97" stroke="#b45309" stroke-width="2.5" stroke-linecap="round" fill="#ffffff" />
+
+              <!-- 안경 -->
+              <g class="character-glasses" opacity="0.9">
+                <rect x="73" y="75" width="22" height="17" rx="5" fill="none" stroke="#1f2937" stroke-width="2.6" />
+                <rect x="105" y="75" width="22" height="17" rx="5" fill="none" stroke="#1f2937" stroke-width="2.6" />
+                <path d="M95,81 L105,81" stroke="#1f2937" stroke-width="2.6" stroke-linecap="round" />
+                <line x1="77" y1="78" x2="84" y2="86" stroke="#ffffff" stroke-width="1.2" opacity="0.7" stroke-linecap="round" />
+                <line x1="109" y1="78" x2="116" y2="86" stroke="#ffffff" stroke-width="1.2" opacity="0.7" stroke-linecap="round" />
+              </g>
+
+              <!-- 가르마 펌 (Parted Perm Hair) 메인 앞머리 -->
+              <!-- 정수리 볼륨 및 컬 결 (머리띠 없는 순수한 펌 헤어) -->
+              <path d="M60,70 C58,45 76,30 100,30 C124,30 142,45 140,70 C138,50 122,38 100,38 C78,38 62,50 60,70 Z" fill="url(#hairHighlight)" />
+
+              <!-- 왼쪽 가르마 펌 파트 (부드러운 볼륨 C컬) -->
+              <path d="M99,48 C93,48 83,52 75,60 C68,67 65,76 66,82 C68,82 72,78 76,71 C81,64 88,61 95,62 C98,62 100,56 99,48 Z" fill="url(#hairGrad)" />
+              <path d="M97,49 C91,54 84,60 77,70 C79,64 86,57 94,52 Z" fill="url(#hairHighlight)" opacity="0.8" />
+
+              <!-- 오른쪽 가르마 펌 파트 (부드러운 볼륨 C컬 & 쉼표 곡선) -->
+              <path d="M101,48 C107,48 117,52 125,60 C132,67 135,76 134,82 C132,82 128,78 124,71 C119,64 112,61 105,62 C102,62 100,56 101,48 Z" fill="url(#hairGrad)" />
+              <path d="M103,49 C109,54 116,60 123,70 C121,64 114,57 106,52 Z" fill="url(#hairHighlight)" opacity="0.8" />
+
+              <!-- 가르마 중심 볼륨 및 컬링 디테일 -->
+              <!-- 왼쪽 펌 컬 갈래 -->
+              <path d="M88,58 C84,65 80,72 82,77 C84,74 88,68 91,63 Z" fill="url(#hairGrad)" />
+              <!-- 오른쪽 펌 컬 갈래 -->
+              <path d="M112,58 C116,65 120,72 118,77 C116,74 112,68 109,63 Z" fill="url(#hairGrad)" />
+
+              <!-- 옆머리 구루프/자연스러운 애교 컬 -->
+              <path d="M64,78 C62,85 64,92 67,95 C66,89 66,83 68,79 Z" fill="url(#hairGrad)" />
+              <path d="M136,78 C138,85 136,92 133,95 C134,89 134,83 132,79 Z" fill="url(#hairGrad)" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- 기본 프로필 정보 -->
+        <div class="profile-info">
+          <div class="name-badge-row">
+            <h1 class="user-name">임동찬</h1>
+            <span class="gender-pill"><i class="fa-solid fa-mars"></i> 남성</span>
+          </div>
+          <p class="user-role"><i class="fa-solid fa-graduation-cap"></i> 대학생 <span>(Student)</span></p>
+          <p class="user-quote">
+            “끊임없이 배우고 탐구하며 새로운 가능성에 도전하는 대학생 임동찬입니다.”
+          </p>
+        </div>
+
+        <!-- 이메일 및 주요 정보 칩 -->
+        <div class="contact-card" id="emailCopyBox" title="클릭하여 이메일 주소 복사">
+          <div class="contact-icon">
+            <i class="fa-regular fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <span class="contact-label">Email (클릭 시 복사)</span>
+            <span class="contact-value" id="userEmail">asd042634@gmail.com</span>
+          </div>
+          <button class="copy-btn" id="copyBtn" aria-label="이메일 복사">
+            <i class="fa-regular fa-copy"></i>
+          </button>
+        </div>
+
+        <!-- 하단 액션 버튼들 -->
+        <div class="action-buttons">
+          <a href="mailto:asd042634@gmail.com" class="btn btn-primary">
+            <i class="fa-solid fa-paper-plane"></i> 메일 보내기
+          </a>
+          <button class="btn btn-secondary" id="showDetailsBtn">
+            <i class="fa-solid fa-id-card"></i> 상세 소개 보기
+          </button>
+        </div>
+      </div>
+
+      <!-- 카드 뒷면 (Back) -->
+      <div class="card-face card-back">
+        <div class="back-header">
+          <h2>About Me</h2>
+          <button class="back-close-btn" id="backCloseBtn" title="앞면으로 돌아가기">
+            <i class="fa-solid fa-rotate-left"></i>
+          </button>
+        </div>
+
+        <div class="back-content">
+          <!-- 상세 소개 섹션 -->
+          <div class="detail-section">
+            <h3><i class="fa-solid fa-user-astronaut"></i> 프로필 요약</h3>
+            <ul class="detail-list">
+              <li><strong>이름:</strong> 임동찬 (Lim Dongchan)</li>
+              <li><strong>신분:</strong> 열정 넘치는 대학생</li>
+              <li><strong>성별:</strong> 남성</li>
+              <li><strong>연락처:</strong> asd042634@gmail.com</li>
+            </ul>
+          </div>
+
+          <!-- 관심사 및 키워드 -->
+          <div class="detail-section">
+            <h3><i class="fa-solid fa-compass"></i> 관심 분야 & 키워드</h3>
+            <div class="tag-cloud">
+              <span class="tag">#학습과성장</span>
+              <span class="tag">#새로운도전</span>
+              <span class="tag">#소통과협업</span>
+              <span class="tag">#기술탐구</span>
+              <span class="tag">#창의적사고</span>
+              <span class="tag">#대학생활</span>
+            </div>
+          </div>
+
+          <!-- 한 줄 다짐 -->
+          <div class="motto-box">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+            <p>오늘보다 내일 더 발전하는 인재가 되기 위해 매 순간 성실함과 호기심으로 임하고 있습니다.</p>
+          </div>
+        </div>
+
+        <!-- 뒷면 푸터 -->
+        <div class="back-footer">
+          <button class="btn btn-primary" id="returnFrontBtn" style="width: 100%;">
+            <i class="fa-solid fa-arrow-left"></i> 앞면으로 돌아가기
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 카드 하단 팁 문구 -->
+    <div class="footer-tip">
+      <i class="fa-regular fa-lightbulb"></i> 마우스를 움직여 3D 효과를 느껴보세요. 카드를 클릭하거나 뒤집기 버튼으로 상세 정보를 볼 수 있습니다.
+    </div>
+  </main>
+
+  <!-- 복사 완료 토스트 알림 -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMsg">이메일 주소가 클립보드에 복사되었습니다!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
